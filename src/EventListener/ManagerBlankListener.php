@@ -15,7 +15,7 @@ class ManagerBlankListener
         }
 
         return preg_replace_callback(
-            '/<a\s[^>]*href="[^"]*contao-manager[^"]*"[^>]*>/i',
+            '/<a\s[^>]*href="([^"]*contao-manager[^"]*)"[^>]*>/i',
             static function( array $match ): string
             {
                 if( stripos( $match[ 0 ], 'target=' ) !== false )
@@ -23,7 +23,11 @@ class ManagerBlankListener
                     return $match[ 0 ];
                 }
 
-                return substr( $match[ 0 ], 0, -1 ) . ' target="_blank" rel="noopener">';
+                // Fenstername je Manager-Adresse, damit jede Domain ihr eigenes Fenster bekommt.
+                // Kein rel="noopener", sonst ignoriert der Browser den Namen.
+                $target = 'contao_manager_' . md5( $match[ 1 ] );
+
+                return substr( $match[ 0 ], 0, -1 ) . ' target="' . $target . '">';
             },
             $buffer
         ) ?? $buffer;
