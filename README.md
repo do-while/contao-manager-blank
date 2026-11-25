@@ -1,6 +1,6 @@
 # do-while/contao-manager-blank
 
-Öffnet den Menüpunkt „Contao Manager“ im Backend von Contao 5 in einem neuen Fenster.
+Öffnet den Menüpunkt „Contao Manager“ im Backend von Contao 5 in einem neuen Browser-Fenster.
 
 ## Voraussetzungen
 
@@ -9,22 +9,18 @@
 
 ## Installation
 
-Das Repository in der `composer.json` der Contao-Installation eintragen
-(die URL durch die eigene ersetzen):
+### Mit dem Contao Manager
 
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://example.com/contao-manager-blank.git"
-    }
-]
-```
+1. Im Contao Manager unter „Pakete“ nach `do-while/contao-manager-blank` suchen.
+2. Das Paket hinzufügen.
+3. Die Änderungen anwenden.
 
-Anschließend das Paket installieren:
+### Mit Composer
+
+Im Hauptverzeichnis der Contao-Installation ausführen:
 
 ```bash
-composer require do-while/contao-manager-blank:dev-main
+composer require do-while/contao-manager-blank:^1.0
 ```
 
 Das Bundle wird über das Contao-Manager-Plugin automatisch registriert.
