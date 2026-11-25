@@ -11,5 +11,8 @@
         "psr-4": {
             "softleister\\ContaoManagerBlankBundle\\": "src/"
         }
+    },
+    "extra": {
+        "contao-manager-plugin": "softleister\\ContaoManagerBlankBundle\\ContaoManager\\Plugin"
     }
 }
