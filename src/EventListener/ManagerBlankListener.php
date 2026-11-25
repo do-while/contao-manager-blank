@@ -27,7 +27,16 @@ class ManagerBlankListener
                 // Kein rel="noopener", sonst ignoriert der Browser den Namen.
                 $target = 'contao_manager_' . md5( $match[ 1 ] );
 
-                return substr( $match[ 0 ], 0, -1 ) . ' target="' . $target . '">';
+                // Vorhandenes Manager-Fenster nur nach vorn holen, ohne es neu zu laden.
+                // Geladen wird nur, wenn das Fenster neu ist oder etwas anderes anzeigt.
+                $onclick = "if( event.ctrlKey || event.metaKey || event.shiftKey ) return true; "
+                         . "var w = window.open( '', this.target ); "
+                         . "if( !w ) return true; "
+                         . "if( w.location.href.indexOf( 'contao-manager' ) < 0 ) w.location.href = this.href; "
+                         . "w.focus( ); "
+                         . "return false;";
+
+                return substr( $match[ 0 ], 0, -1 ) . ' target="' . $target . '" onclick="' . $onclick . '">';
             },
             $buffer
         ) ?? $buffer;

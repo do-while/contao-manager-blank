@@ -36,6 +36,8 @@ Der Hook `outputBackendTemplate` ergänzt im Template `be_main` jeden Link,
 dessen Adresse `contao-manager` enthält, um ein `target` mit einem Fensternamen,
 der aus der Manager-Adresse gebildet wird. Ein bereits über den Link geöffnetes
 Manager-Fenster wird dadurch wiederverwendet, getrennt je Domain.
+Ein `onclick`-Attribut holt ein bestehendes Fenster nach vorn, ohne den Manager
+neu zu laden.
 Links mit vorhandenem `target`-Attribut bleiben unverändert.
 
 ## Deinstallation
