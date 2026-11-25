@@ -1,0 +1,13 @@
+# Composer
+/vendor/
+/composer.lock
+
+# IDE und Editoren
+/.idea/
+/.vscode/
+*.swp
+*~
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
